@@ -9,18 +9,18 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/",
-      "methods": [
-        "GER",
-        "POST",
-        "PUT",
-        "DELETE",
-        "PATCH",
-        "OPTIONS"
-      ],
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
+      "dest": "/"
+      // "methods": [
+      //   "GET",
+      //   "POST",
+      //   "PUT",
+      //   "DELETE",
+      //   "PATCH",
+      //   "OPTIONS"
+      // ],
+      // "headers": {
+      //   "Access-Control-Allow-Origin": "*"
+      // }
     }
   ]
 }
