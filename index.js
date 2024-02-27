@@ -1,11 +1,7 @@
 const express = require('express')
+const cors = require('cors')
 const router = require('./src/routes/router')
 const DB = require('./src/dataBase/db')
-
-const cors = require('cors')
-const app = express()
-const port = 3000
-
 
 const corsOptions = {
     origin: '*',
@@ -16,6 +12,11 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
+
+const app = express()
+const port = 3000
+
+
 
 app.use(express.static('public'))
 app.use(express.json())
