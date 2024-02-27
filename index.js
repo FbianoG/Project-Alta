@@ -8,7 +8,7 @@ const port = 3000
 
 
 const corsOptions = {
-    origin: 'https://fbianog.github.io',
+    origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
