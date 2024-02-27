@@ -3,15 +3,15 @@ const express = require('express')
 const DB = require('./src/dataBase/db')
 const app = express()
 
-const corsOptions = {
-    origin: 'http://127.0.0.1:5500',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    optionsSuccessStatus: 204,
-    exposedHeaders: 'Authorization',
-}
+// const corsOptions = {
+//     origin: 'http://127.0.0.1:5500',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true,
+//     optionsSuccessStatus: 204,
+//     exposedHeaders: 'Authorization',
+// }
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 
 const router = require('./src/routes/router')
