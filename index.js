@@ -10,10 +10,10 @@ const corsOptions = {
     optionsSuccessStatus: 204,
     exposedHeaders: 'Authorization',
 }
+const app = express()
 
 app.use(cors(corsOptions))
 
-const app = express()
 const port = 3000
 
 
