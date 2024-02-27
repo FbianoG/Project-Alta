@@ -9,7 +9,7 @@ async function login(req, res) {
         if (!username || !password) {
             username = "123"
             password = "123"
-            const userFind = await User.findOne({ username, password })
+            // const userFind = await User.findOne({ username, password })
             return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!" })
         }
         const userFind = await User.findOne({ username, password })
