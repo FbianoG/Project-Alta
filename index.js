@@ -13,7 +13,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.options('*', cors(corsOptions));
 
 const router = require('./src/routes/router')
 
