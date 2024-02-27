@@ -9,10 +9,24 @@ async function login(req, res) {
         if (!username || !password) {
             username = "123"
             password = "123"
+
+            res.header('Access-Control-Allow-Origin', '*');
+            res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+            res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+            res.header('Access-Control-Expose-Headers', 'Authorization');
+
+
             // const userFind = await User.findOne({ username, password })
             return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!", username, password })
         }
         const userFind = await User.findOne({ username, password })
+
+
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        res.header('Access-Control-Expose-Headers', 'Authorization');
+
         // const userFind = null
         if (!userFind) {
             return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!", username, password })
