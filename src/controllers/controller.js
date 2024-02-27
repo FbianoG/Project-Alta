@@ -11,8 +11,8 @@ async function login(req, res) {
             return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!" });
         }
 
-        const userFind = await User.findOne({ username, password });
-
+        const userFind = await User.findOne({ username });
+        console.log(userFind);
         if (!userFind) {
             return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!" });
         }
@@ -21,7 +21,7 @@ async function login(req, res) {
 
         return res.status(200).json({ auth: true, status: 200, message: "Logado com sucesso!", token });
     } catch (error) {
-        console.error(error);
+        console.console.log(); (error);
         return res.status(500).json({ message: "Ocorreu algum erro de servidor!" });
     }
 }
