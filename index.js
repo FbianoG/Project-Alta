@@ -4,7 +4,7 @@ const DB = require('./src/dataBase/db')
 const app = express()
 
 const corsOptions = {
-    origin: 'https://fbianog.github.io',
+    origin: 'https://fbianog.github.io/Project-Alta--Front-end-',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
