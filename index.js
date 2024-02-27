@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const router = require('./src/routes/router')
 const DB = require('./src/dataBase/db')
+const app = express()
 
 const corsOptions = {
     origin: 'https://fbianog.github.io',
@@ -9,10 +10,9 @@ const corsOptions = {
     credentials: true,
     optionsSuccessStatus: 204,
     exposedHeaders: 'Authorization',
-}
-const app = express()
-
-app.use(cors(corsOptions))
+  };
+  
+  app.use(cors(corsOptions));
 
 const port = 3000
 
