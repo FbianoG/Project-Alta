@@ -12,9 +12,9 @@ async function login(req, res) {
             // const userFind = await User.findOne({ username, password })
             return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!", username, password })
         }
-        // const userFind = await User.findOne({ username, password })
-        const userFind = null
-        if (userFind == null) {
+        const userFind = await User.findOne({ username, password })
+        // const userFind = null
+        if (!userFind) {
             return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!", username, password })
         }
         const token = await mid.createToken(userFind._id)
