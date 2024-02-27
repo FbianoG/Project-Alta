@@ -4,12 +4,15 @@ const mongoose = require('mongoose')
 
 
 const Patient = mongoose.model('patient', {
+    id: String,
     name: String,
     plan: String,
     obs: String,
     nota: Boolean,
     conc: Boolean,
     int: Boolean,
+    alta: Boolean,
+    salta: Boolean,
 })
 
 

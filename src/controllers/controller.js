@@ -4,25 +4,28 @@ const mid = require("../middlewares/jwtoken")
 
 
 async function login(req, res) {
-    let { username, password } = req.body;
-
+    let { username, password } = req.body
+    res.header("Acess-Control-Allow-Origin", "*")
+    res.header("Acess-Control-Allow-Methods", "GET, POST, DELETE, HEAD")
+    res.header("Acess-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
     try {
         if (!username || !password) {
-            return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!" });
+            return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!" })
         }
 
-        const userFind = await User.findOne({ username });
-        console.log(userFind);
+        const userFind = await User.findOne({ username, password })
+
         if (!userFind) {
-            return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!" });
+            return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!" })
         }
 
-        const token = await mid.createToken(userFind._id);
+        const token = await mid.createToken(userFind._id)
 
-        return res.status(200).json({ auth: true, status: 200, message: "Logado com sucesso!", token });
+        return res.status(200).json({ auth: true, status: 200, message: "Logado com sucesso!", token })
+
     } catch (error) {
-        console.console.log(); (error);
-        return res.status(500).json({ message: "Ocorreu algum erro de servidor!" });
+        console.console.log(); (error)
+        return res.status(500).json({ message: "Ocorreu algum erro de servidor!" })
     }
 }
 
