@@ -4,7 +4,7 @@ const router = require('./src/routes/router')
 const DB = require('./src/dataBase/db')
 
 const corsOptions = {
-    origin: 'https://fbianog.github.io/',
+    origin: 'https://fbianog.github.io',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
