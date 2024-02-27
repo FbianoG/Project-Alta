@@ -5,9 +5,7 @@ const mid = require("../middlewares/jwtoken")
 
 async function login(req, res) {
     try {
-        // const { username, password } = req.body
-        const username = "123"
-        const password = "123"
+        const { username, password } = req.body
         if (!username || !password) {
             return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!" })
         }
