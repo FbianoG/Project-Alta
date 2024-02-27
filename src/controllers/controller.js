@@ -5,9 +5,9 @@ const mid = require("../middlewares/jwtoken")
 
 async function login(req, res) {
     let { username, password } = req.body
-    // res.header("Acess-Control-Allow-Origin", "*")
-    // res.header("Acess-Control-Allow-Methods", "GET, POST, DELETE, HEAD")
-    // res.header("Acess-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
+    res.header("Acess-Control-Allow-Origin", "*")
+    res.header("Acess-Control-Allow-Methods", "GET, POST, DELETE, HEAD")
+    res.header("Acess-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
     try {
         if (!username || !password) {
             return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!" })
