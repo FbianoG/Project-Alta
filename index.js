@@ -1,6 +1,5 @@
 const express = require('express')
 const cors = require('cors')
-const router = require('./src/routes/router')
 const DB = require('./src/dataBase/db')
 const app = express()
 
@@ -10,9 +9,12 @@ const corsOptions = {
     credentials: true,
     optionsSuccessStatus: 204,
     exposedHeaders: 'Authorization',
-  };
-  
-  app.use(cors(corsOptions));
+};
+
+app.use(cors(corsOptions));
+
+const router = require('./src/routes/router')
+
 
 const port = 3000
 
