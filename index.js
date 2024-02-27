@@ -8,7 +8,7 @@ const port = 3000
 const cors = require('cors')
 
 const corsOptions = {
-    origin: 'http://127.0.0.1:5500',
+    origin: 'https://fbianog.github.io',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
