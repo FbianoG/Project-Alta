@@ -5,7 +5,7 @@ const app = express()
 
 const corsOptions = {
     origin: 'http://127.0.0.1:5500',
-    methods: 'POST',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
     exposedHeaders: 'Authorization',
