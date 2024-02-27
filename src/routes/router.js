@@ -4,6 +4,9 @@ const mid = require("../middlewares/jwtoken")
 
 
 
+router.get("/", async (req, res) => {
+    res.json({ message: "Tudo certo" })
+})
 
 router.post("/login", control.login)
 
