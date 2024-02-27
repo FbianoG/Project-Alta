@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
 
 router.post("/login", control.login)
 
-router.post("/getPatient", mid.verifyToken, control.getPatient)
+router.post("/getPatient",  control.getPatient)
 
 router.post("/updatePatient", mid.verifyToken, control.updatePatient)
 

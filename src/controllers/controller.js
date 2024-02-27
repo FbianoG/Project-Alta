@@ -4,40 +4,28 @@ const mid = require("../middlewares/jwtoken")
 
 
 async function login(req, res) {
+    let { username, password } = req.body;
+
     try {
-        let { username, password } = req.body
         if (!username || !password) {
-            username = "123"
-            password = "123"
-
-            res.header('Access-Control-Allow-Origin', '*');
-            res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-            res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-            res.header('Access-Control-Expose-Headers', 'Authorization');
-
-
-            // const userFind = await User.findOne({ username, password })
-            return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!", username, password })
+            return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!" });
         }
-        const userFind = await User.findOne({ username, password })
 
+        const userFind = await User.findOne({ username, password });
 
-        res.header('Access-Control-Allow-Origin', '*');
-        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-        res.header('Access-Control-Expose-Headers', 'Authorization');
-
-        // const userFind = null
         if (!userFind) {
-            return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!", username, password })
+            return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!" });
         }
-        const token = await mid.createToken(userFind._id)
-        return res.status(200).json({ auth: true, status: 200, message: "Logado com sucesso!", token })
+
+        const token = await mid.createToken(userFind._id);
+
+        return res.status(200).json({ auth: true, status: 200, message: "Logado com sucesso!", token });
     } catch (error) {
-        console.error(error)
-        return res.status(500).json({ message: "Ocorreu algum erro de servidor!" })
+        console.error(error);
+        return res.status(500).json({ message: "Ocorreu algum erro de servidor!" });
     }
 }
+
 
 
 
