@@ -7,15 +7,7 @@ const app = express()
 const port = 3000
 
 
-const corsOptions = {
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    optionsSuccessStatus: 204,
-    exposedHeaders: 'Authorization',
-}
-
-app.use(cors(corsOptions)) // Configurar CORS antes das rotas
+app.use(cors()) // Configurar CORS antes das rotas
 
 app.use(express.static('public'))
 app.use(express.json())
