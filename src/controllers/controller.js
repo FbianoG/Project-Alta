@@ -21,9 +21,9 @@ async function login(req, res) {
             return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!" })
         }
 
-        const token = await mid.createToken(userFind._id)
+        // const token = await mid.createToken(userFind._id)
 
-        return res.status(200).json({ auth: true, status: 200, message: "Logado com sucesso!", token })
+        return res.status(200).json({ auth: true, status: 200, message: "Logado com sucesso!",  })
 
     } catch (error) {
         console.log(error)
