@@ -8,6 +8,7 @@ async function login(req, res) {
     res.header('Access-Control-Allow-Origin', '*'); // Substitua pelo endereço do seu frontend local
     res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type,credentials');
+    res.header('Access-Control-Allow-Credentials', true);
 
 
     let { username, password } = req.body
