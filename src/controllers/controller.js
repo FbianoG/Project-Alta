@@ -5,17 +5,14 @@ const mid = require("../middlewares/jwtoken")
 
 async function login(req, res) {
     let { username, password } = req.body
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, HEAD');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+
 
     try {
         if (!username || !password) {
             return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!" })
         }
 
-        // Use uma biblioteca de hash de senha, como bcrypt, para comparar senhas de maneira segura
-        const userFind = await User.findOne({ username, password })
+        const afa = await User.findOne({ username, password })
 
         if (!userFind) {
             return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!" })
