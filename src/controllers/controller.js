@@ -12,7 +12,7 @@ async function login(req, res) {
             return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!" })
         }
 
-        const afa = await User.findOne({ username, password })
+        const userFind = await User.findOne({ username, password })
 
         if (!userFind) {
             return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!" })
