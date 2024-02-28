@@ -4,6 +4,12 @@ const mid = require("../middlewares/jwtoken")
 
 
 async function login(req, res) {
+
+    res.header('Access-Control-Allow-Origin', '*'); // Substitua pelo endereço do seu frontend local
+    res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type,credentials');
+
+
     let { username, password } = req.body
 
 
