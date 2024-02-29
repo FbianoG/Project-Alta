@@ -5,15 +5,7 @@ const mid = require("../middlewares/jwtoken")
 
 async function login(req, res) {
 
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type,credentials');
-    res.header('Access-Control-Allow-Credentials', true);
-
-
     let { username, password } = req.body
-
-
     try {
         if (!username || !password) {
             return res.status(400).json({ auth: false, status: 400, message: "Preencha todos os campos!" })
@@ -22,8 +14,8 @@ async function login(req, res) {
         if (!userFind) {
             return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!" })
         }
-        // const token = await mid.createToken(userFind._id)
-        return res.status(200).json({ auth: true, status: 200, message: "Logado com sucesso!", })
+        const token = await mid.createToken(userFind._id)
+        return res.status(200).json({ auth: true, status: 200, message: "Logado com sucesso!", token })
     } catch (error) {
         console.log(error)
         return res.status(500).json({ message: "Ocorreu algum erro de servidor!" })
