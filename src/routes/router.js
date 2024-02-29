@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     res.json({ message: "Tudo certo" })
 })
 
-router.post("/login", cor.cores, control.login)
+router.post("/login", control.login)
 
 router.post("/getPatient", mid.verifyToken, control.getPatient)
 
