@@ -5,7 +5,7 @@ const mid = require("../middlewares/jwtoken")
 
 async function login(req, res) {
 
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+    res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type,credentials');
     res.header('Access-Control-Allow-Credentials', true);
