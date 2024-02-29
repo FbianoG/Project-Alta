@@ -12,10 +12,10 @@ async function login(req, res) {
         }
         const userFind = await User.findOne({ username, password })
         if (!userFind) {
-            return res.status(400).json({ auth: false, status: 400, message: "Login ou senha inválido!" })
+            return res.status(400).json({message: "Login ou senha inválido!" })
         }
-        const token = await mid.createToken(userFind._id)
-        return res.status(200).json({ auth: true, status: 200, message: "Logado com sucesso!", token })
+        // const token = await mid.createToken(userFind._id)
+        return res.status(200).json({"Logado com sucesso!" })
     } catch (error) {
         console.log(error)
         return res.status(500).json({ message: "Ocorreu algum erro de servidor!" })
